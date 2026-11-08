@@ -44,7 +44,7 @@ function Compare() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    document.title = "Compare Repositories | Project Explorer";
+    document.title = "Compare Repositories | GitOSS";
   }, []);
 
   const allAvailableRepos = useMemo(() => {

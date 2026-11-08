@@ -16,10 +16,16 @@ import {
 const coreFeatures = [
   { icon: FiSearch, label: "Repository discovery with search and filters" },
   { icon: FiActivity, label: "Trending and activity-based discovery flows" },
-  { icon: FiBarChart2, label: "Open-source insights and language distribution" },
+  {
+    icon: FiBarChart2,
+    label: "Open-source insights and language distribution",
+  },
   { icon: FiColumns, label: "Side-by-side repository comparison tool" },
   { icon: FiBookmark, label: "Bookmarking and repository detail views" },
-  { icon: FiDownload, label: "Data export capabilities in CSV and JSON formats" },
+  {
+    icon: FiDownload,
+    label: "Data export capabilities in CSV and JSON formats",
+  },
   { icon: FiZap, label: "Fluid Lenis smooth scrolling & GSAP animations" },
 ];
 
@@ -67,7 +73,7 @@ const journey = [
 
 function About() {
   useEffect(() => {
-    document.title = "About | Project Explorer";
+    document.title = "About | GitOSS";
   }, []);
 
   return (
@@ -91,7 +97,7 @@ function About() {
         <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div className="max-w-[620px]">
             <p className="m-0 text-[16px] leading-8 text-[#74685D] sm:text-[17px]">
-              Project Explorer is a curated GitHub discovery experience designed
+              GitOSS is a curated GitHub discovery experience designed
               to help developers browse exceptional repositories, understand
               platform trends and find technologies worth exploring.
             </p>
@@ -181,7 +187,7 @@ function About() {
               href="https://github.com/imfirozz/OSS-Project-Explorer"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open the Project Explorer repository on GitHub in a new tab"
+              aria-label="Open the GitOSS repository on GitHub in a new tab"
               className="mt-5 inline-flex max-w-full items-center gap-2 text-[13px] font-semibold text-[#4B2E1F] underline decoration-[#C8AD90] underline-offset-4 transition-colors hover:text-[#8B5E3C]"
             >
               <span>Open the project repository on GitHub</span>
@@ -256,7 +262,7 @@ function About() {
             </h2>
             <p className="mb-0 mt-4 max-w-2xl text-[15px] leading-7 text-[#5F5145] sm:text-[16px]">
               Every repository represents an idea, a problem being solved, or a
-              community building something useful. Project Explorer makes it
+              community building something useful. GitOSS makes it
               easier to discover those ideas and find your next source of
               inspiration.
             </p>

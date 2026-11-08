@@ -99,7 +99,7 @@ function SearchPage() {
             Search results
           </p>
           <h1 className="m-0 text-[clamp(2.2rem,4vw,3.4rem)] font-semibold leading-[1.04] tracking-[-0.06em] text-[#171513]">
-            {query || "Project Explorer"}
+            {query || "GitOSS"}
           </h1>
         </div>
 

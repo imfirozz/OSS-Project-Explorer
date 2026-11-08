@@ -5,18 +5,27 @@
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <link rel="apple-touch-icon" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Discover, compare, and track open-source GitHub repositories with powerful search filters and ecosystem insights." />
+    <meta
+      name="description"
+      content="Discover, compare, and track open-source GitHub repositories with powerful search filters and ecosystem insights."
+    />
     <link rel="dns-prefetch" href="https://api.github.com" />
     <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
-    <title>GitHub Project Explorer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>GitOSS | Open-Source GitHub Discovery</title>
     <script>
       try {
-        const theme = localStorage.getItem("project-explorer-theme") || "system";
-        const dark = theme === "dark" ||
-          (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        const theme =
+          localStorage.getItem("project-explorer-theme") || "system";
+        const dark =
+          theme === "dark" ||
+          (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
         document.documentElement.classList.toggle("dark", dark);
       } catch (error) {
         console.warn("Unable to apply the saved theme before startup.", error);

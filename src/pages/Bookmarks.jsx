@@ -11,7 +11,7 @@ function Bookmarks() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    document.title = "Bookmarks | Project Explorer";
+    document.title = "Bookmarks | GitOSS";
   }, []);
 
   useEffect(() => {

@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  FiArrowUpRight,
-  FiCode,
-  FiGitBranch,
-  FiStar,
-} from "react-icons/fi";
+import { FiArrowUpRight, FiCode, FiGitBranch, FiStar } from "react-icons/fi";
 import { SkeletonBlock } from "./Loader";
 
 function compactNumber(value) {
@@ -40,11 +35,20 @@ function OpenSourceInsightsSection({ dataset, loading, error }) {
   const metrics = [
     { label: "Stars", value: compactNumber(totalStars), icon: FiStar },
     { label: "Forks", value: compactNumber(totalForks), icon: FiGitBranch },
-    { label: "Languages", value: String(languages.filter(([name]) => name !== "Not specified").length), icon: FiCode },
+    {
+      label: "Languages",
+      value: String(
+        languages.filter(([name]) => name !== "Not specified").length,
+      ),
+      icon: FiCode,
+    },
   ];
 
   return (
-    <section id="insights" className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section
+      id="insights"
+      className="scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8"
+    >
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-8 max-w-3xl sm:mb-10">
           <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8B5E3C]">
@@ -55,7 +59,7 @@ function OpenSourceInsightsSection({ dataset, loading, error }) {
           </h2>
           <p className="mb-0 mt-3 max-w-2xl text-[14px] leading-6 text-[#74685D]">
             A snapshot of languages and project activity in the repositories
-            collected by Project Explorer.
+            collected by RepoScout.
           </p>
         </div>
 
@@ -127,7 +131,10 @@ function OpenSourceInsightsSection({ dataset, loading, error }) {
                   <div>
                     <div className="mt-6 space-y-4">
                       {visibleLanguages.map(([language, count]) => (
-                        <div key={language} className="grid grid-cols-[minmax(75px,0.55fr)_1fr_auto] items-center gap-3">
+                        <div
+                          key={language}
+                          className="grid grid-cols-[minmax(75px,0.55fr)_1fr_auto] items-center gap-3"
+                        >
                           <span className="truncate text-[12px] font-medium text-[#4B4036]">
                             {language}
                           </span>
@@ -177,7 +184,11 @@ function OpenSourceInsightsSection({ dataset, loading, error }) {
                 <div className="mt-7 grid grid-cols-3 gap-3 border-t border-[#D8C6B3] pt-5">
                   {metrics.map(({ label, value, icon: Icon }) => (
                     <div key={label} className="min-w-0">
-                      <Icon className="mb-2 text-[#8B5E3C]" size={15} aria-hidden="true" />
+                      <Icon
+                        className="mb-2 text-[#8B5E3C]"
+                        size={15}
+                        aria-hidden="true"
+                      />
                       <p className="m-0 truncate text-[16px] font-semibold tracking-[-0.035em] text-[#171513]">
                         {value}
                       </p>

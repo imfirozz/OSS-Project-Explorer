@@ -1,6 +1,10 @@
-# Open Source GitHub Project Explorer
+# GitOSS — Open Source GitHub Project Explorer
 
 > Discover, analyze, compare, and track exceptional open-source projects.
+>
+> 🌐 **Live Demo:** [https://gitoss.vercel.app](https://gitoss.vercel.app)
+
+[![Live Demo](https://img.shields.io/badge/Demo-gitoss.vercel.app-000000?logo=vercel&logoColor=white)](https://gitoss.vercel.app)
 
 [![React 19](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Vite 8](https://img.shields.io/badge/Vite-8.1-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -13,7 +17,7 @@
 [![ESLint 10](https://img.shields.io/badge/ESLint-10-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/)
 [![MIT License](https://img.shields.io/badge/License-MIT-F5A623.svg)](LICENSE)
 
-**Open Source GitHub Project Explorer** is a high-performance, client-side web application designed for developers, engineering managers, and open-source contributors to evaluate and monitor public GitHub repositories. By pairing GitHub's official REST Search API with multi-faceted filtering, side-by-side metric comparison, local bookmarking with private notes, client-side dataset telemetry, and formula-safe data exports, the application delivers a focused discovery workspace without requiring user authentication or third-party tracking.
+**GitOSS** is a high-performance, client-side web application designed for developers, engineering managers, and open-source contributors to evaluate and monitor public GitHub repositories. By pairing GitHub's official REST Search API with multi-faceted filtering, side-by-side metric comparison, local bookmarking with private notes, client-side dataset telemetry, and formula-safe data exports, the application delivers a focused discovery workspace without requiring user authentication or third-party tracking.
 
 ---
 

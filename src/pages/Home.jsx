@@ -30,7 +30,7 @@ function Home() {
   const [datasetError, setDatasetError] = useState("");
 
   useEffect(() => {
-    document.title = "Project Explorer | Open-source discovery";
+    document.title = "GitOSS | Open-Source Discovery";
   }, []);
 
   useEffect(() => {

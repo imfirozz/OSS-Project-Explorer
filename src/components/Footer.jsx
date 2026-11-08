@@ -23,11 +23,15 @@ function Footer() {
         <div>
           <div className="mb-5 flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-[#E8DCCF] bg-[#FAF6F0]">
-              <img src={logo} alt="Project Explorer" className="h-full w-full object-cover" />
+              <img
+                src={logo}
+                alt="RepoScout"
+                className="h-full w-full object-cover"
+              />
             </span>
             <div>
               <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#171513]">
-                Project Explorer
+                RepoScout
               </div>
             </div>
           </div>
@@ -164,7 +168,7 @@ function Footer() {
 
       <div className="mx-auto max-w-[1400px] border-t border-[#E8DCCF] px-4 py-5 text-[13px] text-[#74685D] sm:px-6 lg:px-8">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Project Explorer. Built for the open-source community.</p>
+          <p>© 2026 RepoScout. Built for the open-source community.</p>
           <p>Designed for thoughtful discovery.</p>
         </div>
       </div>
