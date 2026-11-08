@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
 import {
   FiArrowUpRight,
   FiBookOpen,
@@ -7,6 +6,7 @@ import {
   FiLinkedin,
   FiMail,
 } from "react-icons/fi";
+import logo from "../assets/logo.jpg";
 
 const footerLinks = [
   { label: "Home", to: "/" },
@@ -22,8 +22,8 @@ function Footer() {
       <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.4fr_0.8fr_1fr] lg:px-8">
         <div>
           <div className="mb-5 flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#E8DCCF] bg-[#FAF6F0] text-[#171513]">
-              <FaGithub size={20} />
+            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl border border-[#E8DCCF] bg-[#FAF6F0]">
+              <img src={logo} alt="Project Explorer" className="h-full w-full object-cover" />
             </span>
             <div>
               <div className="text-[22px] font-semibold tracking-[-0.04em] text-[#171513]">

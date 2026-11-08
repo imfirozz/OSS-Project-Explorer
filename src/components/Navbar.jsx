@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FiBell, FiBookmark, FiCommand, FiMonitor, FiMoon, FiSearch, FiSun, FiUser } from "react-icons/fi";
-import { FaGithub } from "react-icons/fa";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.jpg";
 
 const NAV_ITEMS = [
   { label: "Home", to: "/" },
@@ -124,7 +124,7 @@ function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="Project Explorer home">
-          <FaGithub size={27} color={isDark ? "#F5EEE5" : "#171513"} />
+          <img src={logo} alt="Project Explorer" className="h-8 w-8 rounded-lg object-cover" />
           <span className={`text-[18px] font-bold tracking-[-0.02em] ${isDark ? "text-[#F5EEE5]" : "text-[#171513]"}`}>Project Explorer</span>
         </Link>
 
