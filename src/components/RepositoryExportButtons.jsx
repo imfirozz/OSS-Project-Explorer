@@ -10,8 +10,8 @@ function RepositoryExportButtons({
   const disabled = repositories.length === 0;
 
   return (
-    <div className="flex flex-wrap items-center gap-2" aria-label={label}>
-      <span className="mr-1 text-[11px] font-medium text-[#74685D]">{label}</span>
+    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2" aria-label={label}>
+      <span className="hidden sm:inline mr-1 text-[11px] font-medium text-[#74685D]">{label}</span>
       {["csv", "json"].map((format) => (
         <button
           key={format}

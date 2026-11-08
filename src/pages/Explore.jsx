@@ -7,6 +7,7 @@ import {
   FiChevronDown,
   FiClock,
   FiCode,
+  FiEdit3,
   FiExternalLink,
   FiFilter,
   FiGitBranch,
@@ -426,42 +427,55 @@ function RepositoryRow({ repo }) {
   const topics = Array.isArray(repo.topics) ? repo.topics.slice(0, 4) : [];
 
   return (
-    <article className="group rounded-[18px] border border-[#E8DCCF] bg-[#F7F2EB] p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#CDB79F] hover:shadow-[0_8px_24px_rgba(75,46,31,0.07)] sm:p-6">
-      <div className="flex items-start gap-3">
-        {repo.owner?.avatar_url ? (
-          <img
-            src={repo.owner.avatar_url}
-            alt=""
-            loading="lazy"
-            className="h-9 w-9 shrink-0 rounded-full border border-[#E8DCCF] object-cover"
-          />
-        ) : (
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EFE5D9] text-xs font-semibold text-[#4B2E1F]">
-            {(repo.owner?.login || "?").slice(0, 1).toUpperCase()}
+    <article className="group rounded-[18px] border border-[#E8DCCF] bg-[#F7F2EB] p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#CDB79F] hover:shadow-[0_8px_24px_rgba(75,46,31,0.07)] sm:p-6">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-2.5 sm:gap-3 min-w-0 flex-1">
+          {repo.owner?.avatar_url ? (
+            <img
+              src={repo.owner.avatar_url}
+              alt=""
+              loading="lazy"
+              className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 rounded-full border border-[#E8DCCF] object-cover"
+            />
+          ) : (
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full bg-[#EFE5D9] text-xs font-semibold text-[#4B2E1F]">
+              {(repo.owner?.login || "?").slice(0, 1).toUpperCase()}
+            </div>
+          )}
+          <div className="min-w-0 flex-1">
+            <p className="m-0 truncate text-[11px] sm:text-[12px] text-[#74685D]">
+              {repo.owner?.login || "Unknown owner"}
+            </p>
+            <a
+              href={repo.html_url}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-0.5 inline-flex max-w-full items-start gap-1 text-[16px] sm:text-[18px] font-semibold tracking-[-0.035em] text-[#171513] transition-colors hover:text-[#8B5E3C]"
+            >
+              <span className="break-words line-clamp-2">{repo.name || repo.full_name}</span>
+              <FiArrowUpRight className="mt-1 shrink-0 text-[#8B5E3C] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
-        )}
-        <div className="min-w-0 flex-1">
-          <p className="m-0 truncate text-[12px] text-[#74685D]">
-            {repo.owner?.login || "Unknown owner"}
-          </p>
-          <a
-            href={repo.html_url}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-0.5 inline-flex max-w-full items-center gap-1.5 text-[18px] font-semibold tracking-[-0.035em] text-[#171513] transition-colors hover:text-[#8B5E3C]"
-          >
-            <span className="truncate">{repo.name || repo.full_name}</span>
-            <FiArrowUpRight className="shrink-0 text-[#8B5E3C] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
         </div>
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
           <button
             type="button"
             onClick={() => setNoteOpen((open) => !open)}
-            className="rounded-lg px-2.5 py-2 text-[12px] font-medium text-[#74685D] transition-colors hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
+            className="hidden sm:inline-flex rounded-lg px-2.5 py-2 text-[12px] font-medium text-[#74685D] transition-colors hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
             aria-expanded={noteOpen}
           >
             {note ? "Edit note" : "Add note"}
+          </button>
+          <button
+            type="button"
+            onClick={() => setNoteOpen((open) => !open)}
+            aria-label={note ? "Edit note" : "Add note"}
+            aria-expanded={noteOpen}
+            className={`sm:hidden flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
+              note ? "bg-[#F3E2D0] text-[#4B2E1F]" : "text-[#74685D] hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
+            }`}
+          >
+            <FiEdit3 size={15} />
           </button>
           <button
             type="button"
@@ -473,22 +487,22 @@ function RepositoryRow({ repo }) {
             }
             title={bookmarked ? "Saved to bookmarks" : "Save to bookmarks"}
             aria-pressed={bookmarked}
-            className={`flex h-9 w-9 items-center justify-center rounded-lg transition-colors ${
+            className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg transition-colors ${
               bookmarked
                 ? "bg-[#F3E2D0] text-[#4B2E1F]"
                 : "text-[#74685D] hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
             }`}
           >
-            {bookmarked ? <FiCheck size={17} /> : <FiBookmark size={17} />}
+            {bookmarked ? <FiCheck size={16} /> : <FiBookmark size={16} />}
           </button>
           <a
             href={repo.html_url}
             target="_blank"
             rel="noreferrer"
             aria-label={`Open ${repo.full_name || repo.name} on GitHub`}
-            className="flex h-9 w-9 items-center justify-center rounded-lg text-[#74685D] transition-colors hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg text-[#74685D] transition-colors hover:bg-[#EFE5D9] hover:text-[#4B2E1F]"
           >
-            <FiExternalLink size={16} />
+            <FiExternalLink size={15} />
           </a>
         </div>
       </div>
@@ -556,7 +570,7 @@ function FeaturedRepository({ repo }) {
   if (!repo) return null;
 
   return (
-    <article className="relative mb-5 overflow-hidden rounded-[22px] border border-[#E8DCCF] bg-[#F3E2D0] p-6 sm:p-7">
+    <article className="relative mb-5 overflow-hidden rounded-[22px] border border-[#E8DCCF] bg-[#F3E2D0] p-4.5 sm:p-7">
       <div
         aria-hidden="true"
         className="absolute -right-7 -top-10 h-40 w-40 rounded-full border border-[#8B5E3C]/10"
@@ -566,7 +580,7 @@ function FeaturedRepository({ repo }) {
         className="absolute -right-1 -top-4 h-28 w-28 rounded-full border border-[#8B5E3C]/10"
       />
       <div className="relative">
-        <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8B5E3C]">
+        <p className="mb-3 sm:mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8B5E3C]">
           Editor&apos;s pick
         </p>
         <div className="flex items-center gap-2 text-[12px] text-[#74685D]">
@@ -574,44 +588,46 @@ function FeaturedRepository({ repo }) {
             <img
               src={repo.owner.avatar_url}
               alt=""
-              className="h-6 w-6 rounded-full border border-[#E8DCCF] object-cover"
+              className="h-5 w-5 sm:h-6 sm:w-6 rounded-full border border-[#E8DCCF] object-cover"
             />
           )}
-          {repo.owner?.login || "Open source"}
+          <span className="truncate">{repo.owner?.login || "Open source"}</span>
         </div>
-        <h2 className="mb-0 mt-2 text-[25px] font-semibold tracking-[-0.045em] text-[#171513] sm:text-[30px]">
+        <h2 className="mb-0 mt-2 text-[20px] sm:text-[25px] md:text-[30px] font-semibold tracking-[-0.045em] text-[#171513] break-words">
           {repo.full_name || repo.name}
         </h2>
-        <p className="mb-0 mt-2 max-w-2xl text-[14px] leading-6 text-[#6D5948]">
+        <p className="mb-0 mt-2 max-w-2xl text-[13px] sm:text-[14px] leading-relaxed text-[#6D5948]">
           {repo.description || "No description provided."}
         </p>
         {Array.isArray(repo.topics) && repo.topics.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-1.5">
+          <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5">
             {repo.topics.slice(0, 3).map((topic) => (
               <span
                 key={topic}
-                className="rounded-md border border-[#8B5E3C]/15 bg-[#FAF6F0]/60 px-2.5 py-1 text-[11px] text-[#6D5948]"
+                className="rounded-md border border-[#8B5E3C]/15 bg-[#FAF6F0]/60 px-2 py-0.5 text-[10px] sm:text-[11px] text-[#6D5948]"
               >
                 {topic}
               </span>
             ))}
           </div>
         )}
-        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-3 text-[12px] text-[#6D5948]">
-          <LanguageMark language={repo.language} />
-          <span className="inline-flex items-center gap-1.5">
-            <FiStar aria-hidden="true" size={13} />
-            {formatCount(repo.stargazers_count)}
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <FiGitBranch aria-hidden="true" size={13} />
-            {formatCount(repo.forks_count)}
-          </span>
+        <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[12px] text-[#6D5948]">
+          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2">
+            <LanguageMark language={repo.language} />
+            <span className="inline-flex items-center gap-1.5">
+              <FiStar aria-hidden="true" size={13} />
+              {formatCount(repo.stargazers_count)}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <FiGitBranch aria-hidden="true" size={13} />
+              {formatCount(repo.forks_count)}
+            </span>
+          </div>
           <a
             href={repo.html_url}
             target="_blank"
             rel="noreferrer"
-            className="ml-auto inline-flex items-center gap-2 text-[13px] font-semibold text-[#4B2E1F] transition-colors hover:text-[#8B5E3C]"
+            className="inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] font-semibold text-[#4B2E1F] transition-colors hover:text-[#8B5E3C]"
           >
             View repository
             <FiArrowUpRight className="transition-transform duration-200 hover:translate-x-0.5" />
@@ -849,7 +865,7 @@ function Explore() {
             onChange={(event) => changeFilters({ q: event.target.value }, { replace: true })}
             placeholder="Search repositories, developers, topics..."
             aria-label="Search repositories, developers, and topics"
-            className="h-[58px] w-full rounded-2xl border border-[#E8DCCF] bg-[#F7F2EB] pl-12 pr-12 text-[14px] text-[#171513] outline-none transition-colors duration-200 placeholder:text-[#95877A] focus:border-[#B8997D] sm:text-[15px]"
+            className="h-[50px] sm:h-[58px] w-full rounded-2xl border border-[#E8DCCF] bg-[#F7F2EB] pl-11 pr-11 sm:pl-12 sm:pr-12 text-[14px] text-[#171513] outline-none transition-colors duration-200 placeholder:text-[#95877A] focus:border-[#B8997D] sm:text-[15px]"
           />
           {filters.query && (
             <button
@@ -865,7 +881,7 @@ function Explore() {
 
         <nav
           aria-label="Repository categories"
-          className="mb-8 flex gap-1 overflow-x-auto border-b border-[#E8DCCF] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mb-6 sm:mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-1.5 overflow-x-auto border-b border-[#E8DCCF] pb-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {CATEGORIES.map((category) => {
             const Icon = category.icon;
@@ -911,14 +927,14 @@ function Explore() {
             aria-label="Repository discovery feed"
             className="min-w-0 overflow-visible lg:max-h-[calc(100dvh-6rem)] lg:overscroll-contain lg:overflow-y-auto lg:pr-2 lg:[scrollbar-color:#CDB79F_transparent] lg:[scrollbar-width:thin]"
           >
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0">
-                <h2 className="m-0 text-[14px] font-semibold text-[#171513]">
+                <h2 className="m-0 text-[14px] sm:text-[15px] font-semibold text-[#171513]">
                   {loading && repositories.length === 0
                     ? "Finding repositories..."
                     : `Showing ${repositories.length} repositories`}
                 </h2>
-                <p className="mb-0 mt-1 truncate text-[12px] text-[#74685D]">
+                <p className="mb-0 mt-0.5 truncate text-[12px] text-[#74685D]">
                   {activeSummary.length
                     ? activeSummary.join(" · ")
                     : filters.query
@@ -926,26 +942,11 @@ function Explore() {
                       : "A selection from across the open-source ecosystem"}
                 </p>
               </div>
-              <div className="flex shrink-0 items-center gap-2">
-                <RepositoryExportButtons
-                  repositories={repositories}
-                  filename="project-explorer-filtered-repositories"
-                  label="Export results"
-                  metadata={{
-                    query: filters.query,
-                    language: filters.language,
-                    sort: filters.sort,
-                    updated: filters.updated,
-                    minStars: filters.minStars,
-                    topic: filters.topic,
-                    category: filters.category,
-                    scope: "Currently loaded results matching active filters",
-                  }}
-                />
+              <div className="flex flex-wrap items-center gap-2">
                 <button
                   type="button"
                   onClick={() => setMobileFiltersOpen(true)}
-                  className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#E8DCCF] bg-[#F7F2EB] px-3 text-[12px] font-medium text-[#4B2E1F] transition-colors hover:bg-[#EFE5D9] lg:hidden"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E8DCCF] bg-[#F7F2EB] px-3 text-[12px] font-medium text-[#4B2E1F] transition-colors hover:bg-[#EFE5D9] lg:hidden"
                 >
                   <FiFilter size={14} />
                   Filters
@@ -974,6 +975,21 @@ function Explore() {
                     size={13}
                   />
                 </label>
+                <RepositoryExportButtons
+                  repositories={repositories}
+                  filename="gitoss-filtered-repositories"
+                  label="Export"
+                  metadata={{
+                    query: filters.query,
+                    language: filters.language,
+                    sort: filters.sort,
+                    updated: filters.updated,
+                    minStars: filters.minStars,
+                    topic: filters.topic,
+                    category: filters.category,
+                    scope: "Currently loaded results matching active filters",
+                  }}
+                />
               </div>
             </div>
 
